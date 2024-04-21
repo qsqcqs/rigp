@@ -1,0 +1,49 @@
+#!/bin/bash
+rig | sed s/x/$((0 + $RANDOM % 10))/ | sed s/x/$((0 + $RANDOM % 10))/ | sed s/x/$((0 + $RANDOM % 10))/ | sed s/x/$((0 + $RANDOM % 10))/ | sed s/x/$((0 + $RANDOM % 10))/ | sed s/x/$((0 + $RANDOM % 10))/ | sed s/x/$((0 + $RANDOM % 10))/
+
+
+dig1=$((0 + $RANDOM % 10))
+dig2=$((0 + $RANDOM % 10))
+dig3=$((0 + $RANDOM % 10))
+dig4=$((0 + $RANDOM % 10))
+dig5=$((0 + $RANDOM % 10))
+dig6=$((0 + $RANDOM % 10))
+dig7=$((0 + $RANDOM % 10))
+dig8=$((0 + $RANDOM % 10))
+dig9=$((0 + $RANDOM % 10))
+#checksum assume 0
+sum2=$(($dig2 + $dig2))
+sum4=$(($dig4 + $dig4))
+sum6=$(($dig6 + $dig6))
+sum8=$(($dig8 + $dig8))
+
+sum=$(($dig1 + $sum2))
+sum=$(($sum + $dig3))
+sum=$(($sum + $sum4))
+sum=$(($sum + $dig5))
+sum=$(($sum + $sum6))
+sum=$(($sum + $dig7))
+sum=$(($sum + $sum8))
+sum=$(($sum + $dig9))
+sum=$(($sum % 10))
+dig10=$((10 - $sum))
+
+MII=$((0 + $RANDOM % 4))
+MII=$(($MII + 3))
+b1=$((0 + $RANDOM % 10))
+b2=$((0 + $RANDOM % 10))
+b3=$((0 + $RANDOM % 10))
+b4=$((0 + $RANDOM % 10))
+b5=$((0 + $RANDOM % 10))
+echo credit card number:
+echo $MII$b1$b2$b3 $b4$b5$dig1$dig2 $dig3$dig4$dig5$dig6 $dig7$dig8$dig9$dig10
+echo $((0 + $RANDOM % 10))$((0 + $RANDOM % 10))$((0 + $RANDOM % 10))
+#ssn
+area=$((0 + $RANDOM % 665))
+area=$(($area + 1))
+group=$((0 + $RANDOM % 89))
+group=$(($group + 11))
+sid=$((0 + $RANDOM % 8999))
+sid=$(($sid + 1001))
+echo social security number
+echo $area-$group-$sid
