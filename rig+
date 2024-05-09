@@ -27,7 +27,7 @@ sum=$(($sum + $sum8))
 sum=$(($sum + $dig9))
 sum=$(($sum % 10))
 dig10=$((10 - $sum))
-
+dig10=$(($dig10 % 10))
 MII=$((0 + $RANDOM % 4))
 MII=$(($MII + 3))
 b1=$((0 + $RANDOM % 10))
@@ -35,35 +35,9 @@ b2=$((0 + $RANDOM % 10))
 b3=$((0 + $RANDOM % 10))
 b4=$((0 + $RANDOM % 10))
 b5=$((0 + $RANDOM % 10))
-echo Major industry identifier:
-if [[ $MII == 3 ]]
-then
-echo American Express
-fi
-if [[ $MII == 4 ]]
-then
-echo Visa
-fi
-if [[ $MII == 5 ]]
-then
-echo Mastercard
-fi
-if [[ $MII == 6 ]]
-then
-echo Discover
-fi
 echo credit card number:
 echo $MII$b1$b2$b3 $b4$b5$dig1$dig2 $dig3$dig4$dig5$dig6 $dig7$dig8$dig9$dig10
-echo CVV
 echo $((0 + $RANDOM % 10))$((0 + $RANDOM % 10))$((0 + $RANDOM % 10))
-echo pin:
-dig1=$((0 + $RANDOM % 10))
-dig2=$((0 + $RANDOM % 10))
-dig3=$((0 + $RANDOM % 10))
-dig4=$((0 + $RANDOM % 10))
-echo $dig1$dig2$dig3$dig4
-echo expiration date:
-echo $((1 + $RANDOM % 12))/$(($(($(date +%Y) % 100)) + $RANDOM % 10))
 #ssn
 area=$((0 + $RANDOM % 665))
 area=$(($area + 1))
